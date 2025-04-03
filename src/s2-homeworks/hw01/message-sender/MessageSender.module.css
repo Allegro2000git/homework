@@ -29,8 +29,10 @@
 }
 
 .button:hover {
+    background-color: #6931bb;
 
 }
 .button:active {
+    background-color: #4545ff;
 
 }
