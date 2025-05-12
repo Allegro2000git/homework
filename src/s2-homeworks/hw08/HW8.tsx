@@ -6,8 +6,6 @@ import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
 
 /*
-* 1 - дописать типы и логику (сортировка по имени, фильтрация по совершеннолетию) homeWorkReducer, проверить тестом
-* 2 - дописать компоненту User
 * 3 - сделать стили в соответствии с дизайном
 * */
 
@@ -86,7 +84,7 @@ const HW8 = () => {
                         <thead className={s.thead}>
                         <tr>
                             <td className={s.nameCol}>Name</td>
-                            <td className={s.ageCol}>Age</td>
+                            <td>Age</td>
                         </tr>
                         </thead>
 
