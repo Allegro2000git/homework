@@ -1,14 +1,12 @@
 .buttonsContainer {
-}
-
-.clock {
+    display: flex;
+    gap: 20px;
 }
 
 .watch {
-}
-
-.watch strong {
+    margin-bottom: 8px;
 }
 
 .more {
+    margin-bottom: 27px;
 }

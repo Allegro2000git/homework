@@ -2,8 +2,7 @@ import {UserType} from '../HW8'
 
 const initialState: UserType[] = []
 
-type ActionType =
-    | { type: 'sort'; payload: 'up' | 'down' }
+type ActionType = { type: 'sort'; payload: 'up' | 'down' }
     | { type: 'check'; payload: number }
 
 export const homeWorkReducer = (state: UserType[] = initialState, action: ActionType): UserType[] => {
