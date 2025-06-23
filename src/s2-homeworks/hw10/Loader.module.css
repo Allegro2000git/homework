@@ -1,3 +1,37 @@
 .loader {
-    /*свг и/или анимация*/
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.loader img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: showStage 1.5s infinite;
+}
+
+.loader img:nth-child(1) {
+    animation-delay: 0s;
+}
+.loader img:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.loader img:nth-child(3) {
+    animation-delay: 0.8s;
+}
+.loader img:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+@keyframes showStage {
+    0%, 20% {
+        opacity: 1;
+    }
+    25%, 100% {
+        opacity: 0;
+    }
 }
