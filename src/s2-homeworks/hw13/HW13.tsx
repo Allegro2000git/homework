@@ -2,17 +2,12 @@ import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
-import axios from 'axios'
+import axios, {AxiosError} from 'axios'
 import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
 
-/*
-* 1 - дописать функцию send
-* 2 - дизэйблить кнопки пока идёт запрос
-* 3 - сделать стили в соответствии с дизайном
-* */
 
 const HW13 = () => {
     const [code, setCode] = useState('')
@@ -20,11 +15,12 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
+    const disabled = info === '...loading'
+
     const send = (x?: boolean | null) => () => {
-        const url =
-            x === null
-                ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
-                : 'https://samurai.it-incubator.io/api/3.0/homework/test'
+        const url = x === null
+            ? 'https://xxxxxx.ccc' // имитация запроса на некорректный адрес
+            : 'https://samurai.it-incubator.io/api/3.0/homework/test'
 
         setCode('')
         setImage('')
@@ -34,14 +30,43 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
+                const errorText = res.data.errorText
+                const info = res.data.info
                 setCode('Код 200!')
                 setImage(success200)
-                // дописать
+                setText(errorText)
+                setInfo(info)
+                console.log(res)
 
             })
             .catch((e) => {
-                // дописать
+                if (axios.isAxiosError(e)) {
+                    const err = e as AxiosError<{ info: string, errorText: string }>
+                    const status = err.response?.status
+                    const message = err.response?.data?.info || e.message
+                    const errorText = err.response?.data?.errorText || e.message
+                    console.log(e)
 
+                    switch (status) {
+                        case 500:
+                            setCode('Ошибка 500!')
+                            setImage(error500)
+                            setText(errorText)
+                            setInfo(message)
+                            break;
+                        case 400:
+                            setCode('Ошибка 400!')
+                            setImage(error400)
+                            setText(errorText)
+                            setInfo(message)
+                            break;
+                        default:
+                            setCode('Error!')
+                            setImage(errorUnknown)
+                            setText(e.name)
+                            setInfo(e.message)
+                    }
+                }
             })
     }
 
@@ -55,8 +80,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        // дописать
-
+                        disabled={disabled}
                     >
                         Send true
                     </SuperButton>
@@ -64,8 +88,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        // дописать
-
+                        disabled={disabled}
                     >
                         Send false
                     </SuperButton>
@@ -73,17 +96,15 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        // дописать
-
+                        disabled={disabled}
                     >
                         Send undefined
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-null'}
-                        onClick={send(null)} // имитация запроса на не корректный адрес
+                        onClick={send(null)} // имитация запроса на некорректный адрес
                         xType={'secondary'}
-                        // дописать
-
+                        disabled={disabled}
                     >
                         Send null
                     </SuperButton>

@@ -11,14 +11,13 @@ type SetThemeIdAT = {
     id: number
 }
 
-export const themeReducer = (state: Theme = initState, action: SetThemeIdAT): Theme => {
+export const themeReducer = (state = initState, action: SetThemeIdAT): Theme => {
     switch (action.type) {
-        case "SET_THEME_ID": {
+        case "SET_THEME_ID":
             return {...state, themeId: action.id}
-        }
         default:
             return state
     }
 }
 
-export const changeThemeId= (id: number): SetThemeIdAT  => ({ type: 'SET_THEME_ID' as const, id })
+export const changeThemeId= (id: number): SetThemeIdAT  => ({ type: 'SET_THEME_ID', id } as const)
