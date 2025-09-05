@@ -8,12 +8,11 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 // здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута, кроме type
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
 export type SuperDebouncedInputPropsType = Omit<DefaultInputPropsType, 'type'> & {
-    // и + ещё пропсы которых нет в стандартном инпуте
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: ReactNode
     spanClassName?: string
-} // илм экспортировать тип SuperInputTextPropsType
+} // или экспортировать тип SuperInputTextPropsType
     & { // плюс специальный пропс SuperPagination
     onDebouncedChange?: (value: string) => void
 }
@@ -32,12 +31,17 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
         onChangeText?.(value)
 
         if (onDebouncedChange) {
-            // делает студент
 
             // остановить предыдущий таймер
+            if (timerId) {
+                clearTimeout(timerId)
+            }
             // запустить новый на 1500ms, в котором вызовется функция
+            const newTimerId = setTimeout(() => {
+                onDebouncedChange(value)
+            }, 1500)
 
-            //
+            setTimerId(Number(newTimerId))
         }
     }
 
