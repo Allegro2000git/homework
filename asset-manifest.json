@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/homework/static/css/main.67987f10.css",
-    "main.js": "/homework/static/js/main.b987f358.js",
+    "main.css": "/homework/static/css/main.ee0764e4.css",
+    "main.js": "/homework/static/js/main.92df8a19.js",
     "static/js/787.66cb4309.chunk.js": "/homework/static/js/787.66cb4309.chunk.js",
     "static/media/avatar.png": "/homework/static/media/avatar.d947cb9d0d13765666b6.png",
     "static/media/200.svg": "/homework/static/media/200.96248f7df0dde10e0a82ac30418f50bc.svg",
@@ -18,12 +18,14 @@
     "static/media/checked.svg": "/homework/static/media/checked.b75ca55e8759862b4083.svg",
     "index.html": "/homework/index.html",
     "static/media/burger.svg": "/homework/static/media/burger.700e416f7bfe3697f96b36c778d25355.svg",
-    "main.67987f10.css.map": "/homework/static/css/main.67987f10.css.map",
-    "main.b987f358.js.map": "/homework/static/js/main.b987f358.js.map",
+    "static/media/Polygon 5.svg": "/homework/static/media/Polygon 5.84608c11f30550bbfe9dc58dff6d4ddb.svg",
+    "static/media/Polygon 2.svg": "/homework/static/media/Polygon 2.3f53e1ada336d4a2b89dabfb878c65f9.svg",
+    "main.ee0764e4.css.map": "/homework/static/css/main.ee0764e4.css.map",
+    "main.92df8a19.js.map": "/homework/static/js/main.92df8a19.js.map",
     "787.66cb4309.chunk.js.map": "/homework/static/js/787.66cb4309.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.67987f10.css",
-    "static/js/main.b987f358.js"
+    "static/css/main.ee0764e4.css",
+    "static/js/main.92df8a19.js"
   ]
 }
